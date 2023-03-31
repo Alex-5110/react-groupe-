@@ -5,23 +5,23 @@ import ImageCard from "./components/ImageCard";
 
 const image = [
   {Titre: "Diapo 1",
-  imgSrc:"./img/1.jpg", 
+  imgSrc:"./src/img/1.jpg", 
 },
 
   {Titre: "Diapo 2",
-  imgSrc:"./img/2.jpg", 
+  imgSrc:"./src/img/2.jpg", 
 },
 
   {Titre: "Diapo 3",
-  imgSrc:"./img/3.jpg", 
+  imgSrc:"./src/img/3.jpg", 
 },
 
   {Titre: "Diapo 4",
-  imgSrc:"./img/4.jpg", 
+  imgSrc:"./src/img/4.jpg", 
 },
 
   {Titre: "Diapo 5",
-  imgSrc:"./img/5.jpg", 
+  imgSrc:"./src/img/5.jpg", 
 },
 
 ];
@@ -30,6 +30,8 @@ const image = [
 function App() {
   
     const [count, setCount] = useState(0);
+
+let diapo=image[count];
 
     const next = () => {
       if (count < image.length-1) { setCount(count + 1) }
