@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from "react";
 import './App.css'
+import ImageCard from "./components/ImageCard";
+
+
+const image = [
+  {Titre: "Diapo 1",
+  imgSrc:"./img/1.jpg", 
+},
+
+  {Titre: "Diapo 2",
+  imgSrc:"./img/2.jpg", 
+},
+
+  {Titre: "Diapo 3",
+  imgSrc:"./img/3.jpg", 
+},
+
+  {Titre: "Diapo 4",
+  imgSrc:"./img/4.jpg", 
+},
+
+  {Titre: "Diapo 5",
+  imgSrc:"./img/5.jpg", 
+},
+
+];
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+    const [count, setCount] = useState(0);
 
-  return (
-    <div className="App">
+    const next = () => {
+      if (count < image.length-1) { setCount(count + 1) }
+    }
+    const previous = () => {
+      if (count > 0) { setCount(count - 1) }
+    
+    }
+    
+    return (
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ImageCard diapo={image[count]} />
+        <button onClick={previous}>previous image</button>
+        <button onClick={next}>Next image</button>
+        <br/><p>Diapo number {count+1} Of {image.length}</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
-
-export default App
+    );
+    }
+    
+  
+export default App;
